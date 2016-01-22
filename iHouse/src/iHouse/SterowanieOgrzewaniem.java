@@ -101,6 +101,7 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		}
 	}
 	
@@ -121,7 +122,12 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 		else{
 			if(wlaczone==false){
 				wlaczOgrzewanie();
-				
+				try {
+					Thread.sleep(2000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	
 			}
 			
 			
