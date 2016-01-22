@@ -6,11 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
 
 public class PanelSterowania extends JFrame {
 
-	private JPanel contentPane;
 
+	
+	private JPanel contentPane;
+	PanelLogowania panelLogowania;
+	SterowanieOgrzewaniem sterowaneiOgrzewaniem;
+	SterowanieAlarmem sterowaneiAlarmem;
+	SterowanieOswietleniem sterowaneiOswietleniem;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -38,11 +45,18 @@ public class PanelSterowania extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		PanelLogowania panelLogowania = new PanelLogowania();
+		panelLogowania = new PanelLogowania();
 		panelLogowania.setBounds(0, 0, 275, 113);
 		contentPane.add(panelLogowania);
+		
+		sterowaneiOgrzewaniem = new SterowanieOgrzewaniem();
+		sterowaneiOgrzewaniem.setBounds(0, 124, 275, 113);
+		contentPane.add(sterowaneiOgrzewaniem);
+		Thread sOgrzewaniem = new Thread(sterowaneiOgrzewaniem);
+		sOgrzewaniem.start();
+		
 		contentPane.validate();
 		contentPane.repaint();
+		
 	}
-
 }
