@@ -53,6 +53,7 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				wylaczOgrewanie();
+				textFieldUstawTemp.setEnabled(true);
 			}
 		});
 		btnNewButton.setBounds(10, 94, 122, 29);
@@ -66,7 +67,8 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 		JButton btnUtrzymujTemperature = new JButton("utrzymuj temperature");
 		btnUtrzymujTemperature.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				utrzymujTemperature(Double.valueOf(textFieldUstawTemp.getText()));
+				
+				textFieldUstawTemp.setEnabled(false);
 			}
 		});
 		btnUtrzymujTemperature.setBounds(10, 189, 156, 23);
@@ -80,6 +82,7 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 	}
 	public void wylaczOgrewanie(){
 		wlaczone=false;
+		
 	}
 
 	
@@ -101,6 +104,12 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		if(	textFieldUstawTemp.isEnabled()==false){
+			utrzymujTemperature(Double.valueOf(textFieldUstawTemp.getText()));
+		}
+		
+		
 		
 		}
 	}

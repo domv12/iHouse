@@ -16,7 +16,7 @@ public class CzujnikTemperatury extends Thread{
 		for(;;){
 		aktualnaTemperatura-=0.1;
 		try {
-			Thread.sleep(6000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
