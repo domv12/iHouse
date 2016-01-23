@@ -21,6 +21,9 @@ public class HarmonogramOswietlenia extends JPanel implements Runnable{
 		private JTextField textField_2;
 		private JTextField textField_3;
 		private JButton btnUstaw;
+		private JLabel lblGodzinaIMinuta;
+		private JLabel lblOd;
+		private JLabel lblDo;
 		
 		
 	
@@ -48,22 +51,22 @@ public class HarmonogramOswietlenia extends JPanel implements Runnable{
 		 
 		
 		textField = new JTextField();
-		textField.setBounds(10, 51, 29, 20);
+		textField.setBounds(36, 51, 29, 20);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(49, 51, 29, 20);
+		textField_1.setBounds(76, 51, 29, 20);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(10, 82, 29, 20);
+		textField_2.setBounds(36, 82, 29, 20);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(49, 82, 29, 20);
+		textField_3.setBounds(76, 82, 29, 20);
 		panel.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -82,8 +85,20 @@ public class HarmonogramOswietlenia extends JPanel implements Runnable{
 				textField_3.setEnabled(false);
 			}
 		});
-		btnUstaw.setBounds(10, 121, 68, 23);
+		btnUstaw.setBounds(19, 113, 68, 23);
 		panel.add(btnUstaw);
+		
+		lblGodzinaIMinuta = new JLabel("godzina  minuta");
+		lblGodzinaIMinuta.setBounds(28, 26, 87, 14);
+		panel.add(lblGodzinaIMinuta);
+		
+		lblOd = new JLabel("od");
+		lblOd.setBounds(14, 54, 22, 14);
+		panel.add(lblOd);
+		
+		lblDo = new JLabel("do");
+		lblDo.setBounds(14, 85, 22, 14);
+		panel.add(lblDo);
 		
 		idPomieszczenia=p1.id;
 		
