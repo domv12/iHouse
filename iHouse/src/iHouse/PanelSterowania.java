@@ -50,10 +50,17 @@ public class PanelSterowania extends JFrame {
 		contentPane.add(panelLogowania);
 		
 		sterowaneiOgrzewaniem = new SterowanieOgrzewaniem();
-		sterowaneiOgrzewaniem.setBounds(0, 124, 275, 248);
+		sterowaneiOgrzewaniem.setBounds(397, 124, 275, 248);
 		contentPane.add(sterowaneiOgrzewaniem);
 		Thread sOgrzewaniem = new Thread(sterowaneiOgrzewaniem);
 		sOgrzewaniem.start();
+		
+		sterowaneiOswietleniem = new SterowanieOswietleniem();
+		sterowaneiOswietleniem.setBounds(0, 124, 387, 277);
+		contentPane.add(sterowaneiOswietleniem);
+		Thread sOswietleniem = new Thread(sterowaneiOswietleniem);
+		sOswietleniem.start();
+		
 		
 		contentPane.validate();
 		contentPane.repaint();

@@ -12,7 +12,7 @@ public class Alarm {
 	CzujnikAlarmu garaz = new CzujnikAlarmu(4,"garaz");
 	
 	List<String> czujnik = new ArrayList<String>();
-	czujnik.add(kuchnia);
+	//czujnik.add(kuchnia);
 	
 	
 	

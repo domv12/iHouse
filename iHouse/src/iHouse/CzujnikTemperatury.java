@@ -1,11 +1,15 @@
 package iHouse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CzujnikTemperatury extends Thread{
 
 	double aktualnaTemperatura;
 	
 	CzujnikTemperatury(){
 		aktualnaTemperatura =20;
+		
 	}
 	
 	double odczytajTemperature(){
