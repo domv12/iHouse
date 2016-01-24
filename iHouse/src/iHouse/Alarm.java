@@ -24,12 +24,13 @@ public class Alarm extends Thread {
 		{
 			if(czujnik.get(i).GetStan()){
 				stan=true;
+				break;
 			}
 			else
 			{	
 				stan=false;
 			}
-		};
+		}
 	return stan;
 	}
 	
@@ -54,7 +55,9 @@ public class Alarm extends Thread {
 		for(;;){
 			
 			sprawdzStan();
+			
 			try {
+			Thread.sleep(2000);
 				wlamSie();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

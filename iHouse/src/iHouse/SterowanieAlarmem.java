@@ -70,8 +70,13 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 		
 	}
 	public void wylaczAlarm(){
+	
 		wlaczone=false;
-		
+		for(int i=0; i>alarm1.czujnik.size();i++){
+		alarm1.czujnik.get(i).stan=false;
+		}
+		lblStan.setText("alarm wylaczony");
+	
 	}
 	
 
