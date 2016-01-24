@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class SterowanieAlarmem extends JPanel implements Runnable {
 
@@ -23,24 +25,25 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 		alarm1 = new Alarm();
 		setLayout(null);
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 198, 300);
+		panel.setBounds(0, 0, 200, 600);
 		add(panel);
 		panel.setLayout(null);
 		
 		lblAlarm = new JLabel("Alarm");
-		lblAlarm.setBounds(7, 0, 86, 24);
+		lblAlarm.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		lblAlarm.setBounds(76, 19, 47, 24);
 		panel.add(lblAlarm);
 		
 		lblWlaczony = new JLabel("");
-		lblWlaczony.setBounds(7, 22, 181, 38);
+		lblWlaczony.setBounds(20, 110, 160, 40);
 		panel.add(lblWlaczony);
 		
 		lblStan = new JLabel("");
-		lblStan.setBounds(7, 147, 181, 38);
+		lblStan.setBounds(20, 210, 160, 40);
 		panel.add(lblStan);
 		
 		
-		JButton btnWlaczAlarm = new JButton("wlacz alarm");
+		JButton btnWlaczAlarm = new JButton("Włącz alarm");
 		btnWlaczAlarm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				wlaczAlarm();
@@ -51,10 +54,10 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 			}
 		});
 		
-		btnWlaczAlarm.setBounds(7, 60, 125, 24);
+		btnWlaczAlarm.setBounds(20, 60, 160, 40);
 		panel.add(btnWlaczAlarm);
 		
-		JButton btnWylaczAlarm = new JButton("wylacz Alarm");
+		JButton btnWylaczAlarm = new JButton("Wyłącz alarm");
 		btnWylaczAlarm.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
@@ -62,11 +65,12 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 				alarm1.stop();
 			}
 		});
-		btnWylaczAlarm.setBounds(7, 95, 122, 29);
+		btnWylaczAlarm.setBounds(20, 160, 160, 40);
 		panel.add(btnWylaczAlarm);
 		
 		lblGsm = new JLabel("");
-		lblGsm.setBounds(7, 196, 181, 79);
+		lblGsm.setVerticalAlignment(SwingConstants.TOP);
+		lblGsm.setBounds(20, 250, 160, 40);
 		panel.add(lblGsm);
 		
 	}
@@ -87,7 +91,7 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		lblStan.setText("alarm wylaczony");
+		lblStan.setText("Alarm wyłączony");
 		lblGsm.setText("");
 	
 	}
@@ -98,14 +102,14 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 		for(;;){
 			
 			if(wlaczone){
-				lblWlaczony.setText("uruchomiony : sprawdzam stan");
+				lblWlaczony.setText("Sprawdzam czujniki");
 				lblStan.setText(String.valueOf(alarm1.sprawdzStan()));
 				if(alarm1.sprawdzStan()){
 					lblGsm.setText(alarm1.gsm.wyslijSMS());
 				}
 				
 			}
-			else lblWlaczony.setText("wylaczony");
+			else lblWlaczony.setText("Wyłączony");
 		}
 		
 	}

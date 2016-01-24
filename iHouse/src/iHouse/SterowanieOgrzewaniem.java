@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import java.awt.Font;
+import java.awt.SystemColor;
+import javax.swing.JSeparator;
 
 public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 
@@ -24,55 +28,81 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 450, 300);
+		panel.setBounds(0, 0, 200, 600);
 		add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblTemperatura = new JLabel("Temperatura");
-		lblTemperatura.setBounds(10, 11, 86, 38);
+		lblTemperatura.setBounds(20, 53, 86, 38);
 		panel.add(lblTemperatura);
 		
-		lblAktualnaTemperatura = new JLabel("");
-		lblAktualnaTemperatura.setBounds(106, 23, 46, 14);
+		lblAktualnaTemperatura = new JLabel("",JLabel.RIGHT);
+		lblAktualnaTemperatura.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblAktualnaTemperatura.setBounds(102, 65, 74, 14);
 		panel.add(lblAktualnaTemperatura);
 		
 		t1 = new CzujnikTemperatury();
 		t1.start();	
 		lblAktualnaTemperatura.setText(String.valueOf(t1.odczytajTemperature()));
 		
-		JButton btnWlaczOgrzewanie = new JButton("wlacz ogrzewanie");
+		JButton btnWlaczOgrzewanie = new JButton("Włącz ogrzewanie");
 		btnWlaczOgrzewanie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				wlaczOgrzewanie();
 			}
 		});
-		btnWlaczOgrzewanie.setBounds(7, 60, 125, 23);
+		btnWlaczOgrzewanie.setBounds(20, 92, 160, 40);
 		panel.add(btnWlaczOgrzewanie);
 		
-		JButton btnNewButton = new JButton("wylacz ogrzewanie");
+		JButton btnNewButton = new JButton("Wyłącz ogrzewanie");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				wylaczOgrewanie();
 				textFieldUstawTemp.setEnabled(true);
 			}
 		});
-		btnNewButton.setBounds(10, 94, 122, 29);
+		btnNewButton.setBounds(20, 142, 160, 40);
 		panel.add(btnNewButton);
 		
 		textFieldUstawTemp = new JTextField();
-		textFieldUstawTemp.setBounds(10, 158, 86, 20);
+		textFieldUstawTemp.setBounds(66, 252, 40, 30);
 		panel.add(textFieldUstawTemp);
 		textFieldUstawTemp.setColumns(10);
 		
-		JButton btnUtrzymujTemperature = new JButton("utrzymuj temperature");
+		JButton btnUtrzymujTemperature = new JButton("Utrzymuj temperature");
 		btnUtrzymujTemperature.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				textFieldUstawTemp.setEnabled(false);
 			}
 		});
-		btnUtrzymujTemperature.setBounds(10, 189, 156, 23);
+		btnUtrzymujTemperature.setBounds(20, 290, 160, 40);
 		panel.add(btnUtrzymujTemperature);
+		
+		JTextPane txtpnOgrzewanie = new JTextPane();
+		txtpnOgrzewanie.setBackground(SystemColor.window);
+		txtpnOgrzewanie.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		txtpnOgrzewanie.setText("Ogrzewanie");
+		txtpnOgrzewanie.setBounds(54, 19, 92, 25);
+		panel.add(txtpnOgrzewanie);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(20, 196, 160, 14);
+		panel.add(separator);
+		
+		JTextPane txtpnUstawStaTemperatur = new JTextPane();
+		txtpnUstawStaTemperatur.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		txtpnUstawStaTemperatur.setBackground(SystemColor.window);
+		txtpnUstawStaTemperatur.setText("Stała temperatura");
+		txtpnUstawStaTemperatur.setBounds(40, 220, 122, 20);
+		panel.add(txtpnUstawStaTemperatur);
+		
+		JTextPane txtpnC = new JTextPane();
+		txtpnC.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		txtpnC.setBackground(SystemColor.window);
+		txtpnC.setText("ºC");
+		txtpnC.setBounds(110, 258, 21, 14);
+		panel.add(txtpnC);
 
 	}
 	
@@ -143,7 +173,4 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 		}
 		
 	}
-	
-	
-
 }

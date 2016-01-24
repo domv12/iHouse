@@ -15,6 +15,6 @@ public class Gsm {
 	}
 	
 	String wyslijSMS(){
-		return("Wystlalem powiadominie na \n"+String.valueOf(nr.get(0))+" \n"+String.valueOf(nr.get(1)));
+		return("Zgłoszono zagrożenie: "+String.valueOf(nr.get(0))+" \n"+String.valueOf(nr.get(1)));
 	}
 }

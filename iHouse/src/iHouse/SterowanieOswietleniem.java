@@ -13,6 +13,10 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.JButton;
+import javax.swing.JTextPane;
+import java.awt.SystemColor;
+import java.awt.Font;
+import javax.swing.JSeparator;
 
 public class SterowanieOswietleniem extends JPanel implements Runnable{
 
@@ -40,6 +44,9 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 	
 	JPanel panel;
 	private JButton btnWylaczWszystkie;
+	private JTextPane txtpnHarmonogram;
+	private JSeparator separator;
+	private JTextPane txtpnWybierzPokj;
 	
 	/**
 	 * Create the panel.
@@ -48,54 +55,55 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBounds(0, 0, 450, 300);
+		panel.setBackground(SystemColor.window);
+		panel.setBounds(0, 0, 200, 600);
 		add(panel);
 		panel.setLayout(null);
 		
-		kuchnia = new Pomieszczenie(1,"kuchnia");
-		salon = new Pomieszczenie(2,"salon");
-		pokoj = new Pomieszczenie(3,"pokoj");
-		lazienka = new Pomieszczenie(4,"lazienka");
-		korytarz = new Pomieszczenie(5,"korytarz");
+		kuchnia = new Pomieszczenie(1,"Kuchnia");
+		salon = new Pomieszczenie(2,"Salon");
+		pokoj = new Pomieszczenie(3,"Pokój");
+		lazienka = new Pomieszczenie(4,"Łazienka");
+		korytarz = new Pomieszczenie(5,"Korytarz");
 		
-		JLabel lblKuchnia = new JLabel("kuchnia");
-		lblKuchnia.setBounds(10, 11, 46, 14);
+		JLabel lblKuchnia = new JLabel("Kuchnia");
+		lblKuchnia.setBounds(40, 75, 98, 14);
 		panel.add(lblKuchnia);
 		
-		JLabel lblSalon = new JLabel("salon");
-		lblSalon.setBounds(10, 36, 46, 14);
+		JLabel lblSalon = new JLabel("Salon");
+		lblSalon.setBounds(40, 100, 98, 14);
 		panel.add(lblSalon);
 		
-		JLabel lblLazienka = new JLabel("lazienka");
-		lblLazienka.setBounds(10, 61, 46, 14);
+		JLabel lblLazienka = new JLabel("Łazienka");
+		lblLazienka.setBounds(40, 125, 76, 14);
 		panel.add(lblLazienka);
 		
-		JLabel lblPokoj = new JLabel("pokoj");
-		lblPokoj.setBounds(10, 86, 46, 14);
+		JLabel lblPokoj = new JLabel("Pokój");
+		lblPokoj.setBounds(40, 150, 76, 14);
 		panel.add(lblPokoj);
 		
-		JLabel lblKorytarz = new JLabel("korytarz");
-		lblKorytarz.setBounds(10, 114, 46, 14);
+		JLabel lblKorytarz = new JLabel("Korytarz");
+		lblKorytarz.setBounds(40, 175, 98, 14);
 		panel.add(lblKorytarz);
 		
-		lblKuchniaStan = new JLabel("");
-		lblKuchniaStan.setBounds(66, 11, 86, 14);
+		lblKuchniaStan = new JLabel("",JLabel.RIGHT);
+		lblKuchniaStan.setBounds(115, 75, 65, 14);
 		panel.add(lblKuchniaStan);
 		
-		lblSalonStan = new JLabel("");
-		lblSalonStan.setBounds(66, 36, 86, 14);
+		lblSalonStan = new JLabel("",JLabel.RIGHT);
+		lblSalonStan.setBounds(115, 100, 65, 14);
 		panel.add(lblSalonStan);
 		
-		lblLazienkaStan = new JLabel("");
-		lblLazienkaStan.setBounds(76, 61, 76, 14);
+		lblLazienkaStan = new JLabel("",JLabel.RIGHT);
+		lblLazienkaStan.setBounds(115, 125, 65, 14);
 		panel.add(lblLazienkaStan);
 		
-		lblPokojStan = new JLabel("");
-		lblPokojStan.setBounds(66, 86, 86, 14);
+		lblPokojStan = new JLabel("",JLabel.RIGHT);
+		lblPokojStan.setBounds(114, 150, 66, 14);
 		panel.add(lblPokojStan);
 		
-		lblKorytarzStan = new JLabel("");
-		lblKorytarzStan.setBounds(66, 114, 86, 14);
+		lblKorytarzStan = new JLabel("",JLabel.RIGHT);
+		lblKorytarzStan.setBounds(115, 175, 65, 14);
 		panel.add(lblKorytarzStan);
 		
 		checkKuchania = new JCheckBox("");
@@ -106,7 +114,7 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 			}
 		});
 		
-		checkKuchania.setBounds(158, 11, 27, 23);
+		checkKuchania.setBounds(10, 70, 25, 25);
 		panel.add(checkKuchania);
 		
 		checkSalon = new JCheckBox("");
@@ -117,7 +125,7 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 			}
 		});
 		
-		checkSalon.setBounds(158, 27, 27, 23);
+		checkSalon.setBounds(10, 95, 25, 25);
 		panel.add(checkSalon);
 		
 		checkLazienka = new JCheckBox("");
@@ -128,7 +136,7 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 			}
 		});
 		
-		checkLazienka.setBounds(158, 52, 27, 23);
+		checkLazienka.setBounds(10, 120, 25, 25);
 		panel.add(checkLazienka);
 		
 		checkPokoj = new JCheckBox("");
@@ -138,7 +146,7 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 				else pokoj.wylaczSwiatlo();
 			}
 		});
-		checkPokoj.setBounds(158, 78, 27, 23);
+		checkPokoj.setBounds(10, 145, 25, 25);
 		panel.add(checkPokoj);
 		
 		chckKorytarz = new JCheckBox("");
@@ -148,11 +156,11 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 				else korytarz.wylaczSwiatlo();
 			}
 		});
-		chckKorytarz.setBounds(158, 105, 27, 23);
+		chckKorytarz.setBounds(10, 170, 25, 25);
 		panel.add(chckKorytarz);
 		
 		JScrollPane listScrollPane = new JScrollPane();
-		String[] ar = {"kuchnia", "salon", "lazienka","pokoj","korytarz"};
+		String[] ar = {"Kuchnia", "Salon", "Łazienka","Pokój","Korytarz"};
 		JList list = new JList(ar);
 		list.addListSelectionListener(new ListSelectionListener() {
 
@@ -162,24 +170,47 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
                   ustawHarmonogram((list.getSelectedValue().toString()));
                 }
             }
-
-			
         });
 		listScrollPane.setViewportView(list);
-		listScrollPane.setBounds(32, 160, 86, 54);
+		listScrollPane.setBounds(20, 345, 160, 67);
 		panel.add(listScrollPane);
 		
 		harmonogramOswietlenia = new HarmonogramOswietlenia(kuchnia);
+		harmonogramOswietlenia.setBounds(0, 420, 0, 0);
 		panel.add(harmonogramOswietlenia);
 		
-		btnWylaczWszystkie = new JButton("wylacz wszystkie");
+		btnWylaczWszystkie = new JButton("Wyłącz wszystkie");
 		btnWylaczWszystkie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				wylaczWszystkieSwiatla();
 			}
 		});
-		btnWylaczWszystkie.setBounds(10, 237, 142, 23);
+		btnWylaczWszystkie.setBounds(20, 215, 160, 40);
 		panel.add(btnWylaczWszystkie);
+		
+		JTextPane txtpnOwietlenie = new JTextPane();
+		txtpnOwietlenie.setFont(new Font("Lucida Grande", Font.BOLD, 15));
+		txtpnOwietlenie.setBackground(SystemColor.window);
+		txtpnOwietlenie.setText("Oświetlenie");
+		txtpnOwietlenie.setBounds(54, 19, 91, 25);
+		panel.add(txtpnOwietlenie);
+		
+		txtpnHarmonogram = new JTextPane();
+		txtpnHarmonogram.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		txtpnHarmonogram.setBackground(SystemColor.window);
+		txtpnHarmonogram.setText("Harmonogram");
+		txtpnHarmonogram.setBounds(51, 289, 97, 25);
+		panel.add(txtpnHarmonogram);
+		
+		separator = new JSeparator();
+		separator.setBounds(20, 267, 160, 10);
+		panel.add(separator);
+		
+		txtpnWybierzPokj = new JTextPane();
+		txtpnWybierzPokj.setBackground(SystemColor.window);
+		txtpnWybierzPokj.setText("Wybierz pokój:");
+		txtpnWybierzPokj.setBounds(19, 322, 161, 18);
+		panel.add(txtpnWybierzPokj);
 		
 		panel.repaint();
 		panel.validate();
@@ -217,13 +248,13 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		for(int i =0;i<tab.length;i++){
 			if(nazwa.equals(tab[i].nazwa)){
 			harmonogramOswietlenia = new HarmonogramOswietlenia(tab[i]);
-			harmonogramOswietlenia.setBounds(200, 15, 115, 180);
+			harmonogramOswietlenia.setBounds(0, 420, 200, 180);
 			panel.add(harmonogramOswietlenia);
 			Thread hOswietlenia = new Thread(harmonogramOswietlenia);
 			hOswietlenia.start();
 			panel.validate();
 			panel.repaint();
-			System.out.println(tab[i].nazwa);
+			//System.out.println(tab[i].nazwa);
 			}
 		}
 		
@@ -234,16 +265,16 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 		for(;;){
-			if(kuchnia.stanSwiatlo)lblKuchniaStan.setText("wlaczone!");
-			else lblKuchniaStan.setText("wylaczone");
-			if(salon.stanSwiatlo)lblSalonStan.setText("wlaczone!");
-			else lblSalonStan.setText("wylaczone");
-			if(pokoj.stanSwiatlo)lblPokojStan.setText("wlaczone!");
-			else lblPokojStan.setText("wylaczone");
-			if(lazienka.stanSwiatlo)lblLazienkaStan.setText("wlaczone!");
-			else lblLazienkaStan.setText("wylaczone");
-			if(korytarz.stanSwiatlo)lblKorytarzStan.setText("wlaczone!");
-			else lblKorytarzStan.setText("wylaczone");
+			if(kuchnia.stanSwiatlo)lblKuchniaStan.setText("On!");
+			else lblKuchniaStan.setText("Off");
+			if(salon.stanSwiatlo)lblSalonStan.setText("On!");
+			else lblSalonStan.setText("Off");
+			if(pokoj.stanSwiatlo)lblPokojStan.setText("On!");
+			else lblPokojStan.setText("Off");
+			if(lazienka.stanSwiatlo)lblLazienkaStan.setText("On!");
+			else lblLazienkaStan.setText("Off");
+			if(korytarz.stanSwiatlo)lblKorytarzStan.setText("On!");
+			else lblKorytarzStan.setText("Off");
 			panel.validate();
 			panel.repaint();		
 	}
