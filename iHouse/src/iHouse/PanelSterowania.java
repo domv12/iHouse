@@ -15,7 +15,7 @@ public class PanelSterowania extends JFrame {
 	private JPanel contentPane;
 	PanelLogowania panelLogowania;
 	SterowanieOgrzewaniem sterowaneiOgrzewaniem;
-	SterowanieAlarmem sterowaneiAlarmem;
+	SterowanieAlarmem sterowanieAlarmem;
 	SterowanieOswietleniem sterowaneiOswietleniem;
 	
 	/**
@@ -48,19 +48,24 @@ public class PanelSterowania extends JFrame {
 		panelLogowania = new PanelLogowania();
 		panelLogowania.setBounds(0, 0, 275, 113);
 		contentPane.add(panelLogowania);
-		
-		sterowaneiOgrzewaniem = new SterowanieOgrzewaniem();
-		sterowaneiOgrzewaniem.setBounds(397, 124, 275, 248);
-		contentPane.add(sterowaneiOgrzewaniem);
 		Thread sOgrzewaniem = new Thread(sterowaneiOgrzewaniem);
 		sOgrzewaniem.start();
 		
 		sterowaneiOswietleniem = new SterowanieOswietleniem();
-		sterowaneiOswietleniem.setBounds(0, 124, 387, 277);
+		sterowaneiOswietleniem.setBounds(0, 124, 275, 277);
 		contentPane.add(sterowaneiOswietleniem);
 		Thread sOswietleniem = new Thread(sterowaneiOswietleniem);
 		sOswietleniem.start();
 		
+		sterowanieAlarmem = new SterowanieAlarmem();
+		sterowanieAlarmem.setBounds(606, 11, 218, 176);
+		contentPane.add(sterowanieAlarmem);
+		
+		sterowaneiOgrzewaniem = new SterowanieOgrzewaniem();
+		sterowaneiOgrzewaniem.setBounds(399, 142, 205, 277);
+		contentPane.add(sterowaneiOgrzewaniem);
+		Thread sAlarmem = new Thread(sterowanieAlarmem);
+		sAlarmem.start();
 		
 		contentPane.validate();
 		contentPane.repaint();
