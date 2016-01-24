@@ -14,11 +14,13 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 	JLabel lblWlaczony;
 	JLabel lblAlarm;
 	JLabel lblStan;
+	JLabel lblGsm;
 	Alarm alarm1;
 	/**
 	 * Create the panel.
 	 */
 	public SterowanieAlarmem() {
+		alarm1 = new Alarm();
 		setLayout(null);
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 198, 300);
@@ -63,6 +65,10 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 		btnWylaczAlarm.setBounds(7, 95, 122, 29);
 		panel.add(btnWylaczAlarm);
 		
+		lblGsm = new JLabel("");
+		lblGsm.setBounds(7, 196, 181, 79);
+		panel.add(lblGsm);
+		
 	}
 	
 	public void wlaczAlarm(){
@@ -75,7 +81,14 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 		for(int i=0; i>alarm1.czujnik.size();i++){
 		alarm1.czujnik.get(i).stan=false;
 		}
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		lblStan.setText("alarm wylaczony");
+		lblGsm.setText("");
 	
 	}
 	
@@ -87,11 +100,13 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 			if(wlaczone){
 				lblWlaczony.setText("uruchomiony : sprawdzam stan");
 				lblStan.setText(String.valueOf(alarm1.sprawdzStan()));
+				if(alarm1.sprawdzStan()){
+					lblGsm.setText(alarm1.gsm.wyslijSMS());
+				}
 				
 			}
 			else lblWlaczony.setText("wylaczony");
 		}
 		
 	}
-
 }

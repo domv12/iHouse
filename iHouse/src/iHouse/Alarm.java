@@ -8,6 +8,7 @@ import java.util.Random;
 public class Alarm extends Thread {
 
 	List<CzujnikAlarmu> czujnik ;
+	Gsm gsm;
 
 	
 	public Alarm(){
@@ -15,7 +16,8 @@ public class Alarm extends Thread {
 		 czujnik.add(new CzujnikAlarmu(1,"kuchnia"));
 		 czujnik.add(new CzujnikAlarmu(2,"pokoj"));
 		 czujnik.add(new CzujnikAlarmu(3,"salon"));
-		 czujnik.add(new CzujnikAlarmu(4,"garaz")); 
+		 czujnik.add(new CzujnikAlarmu(4,"garaz"));
+		 gsm = new Gsm();
 	}
 	
 	public boolean sprawdzStan(){
