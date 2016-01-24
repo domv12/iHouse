@@ -12,6 +12,9 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JLayeredPane;
 
+/**
+ * pozwala na zalogowanei sie do systemu
+ */
 public class PanelLogowania extends JPanel {
 
 
@@ -68,6 +71,9 @@ public class PanelLogowania extends JPanel {
 		panel.add(txtpnIhouse);
 	}
 
+	/**
+	 * loguje do systemu
+	 */
 	public boolean zaloguj() {
 		String localLog = textFieldLogin.getText();
 		String localPas = String.valueOf(passwordFieldHaslo.getPassword());

@@ -1,5 +1,8 @@
 package iHouse;
 
+/**
+ * prechowuje przedzil czasu w ktorym swiatla maja byc zapalone 
+ */
 public class Czas {
 
 	int godziPocz[];

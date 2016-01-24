@@ -18,6 +18,9 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.JSeparator;
 
+/**
+ * odpowiada za sterowanie oswietleniem w domu
+ */
 public class SterowanieOswietleniem extends JPanel implements Runnable{
 
 	int id=3;
@@ -62,8 +65,8 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		
 		kuchnia = new Pomieszczenie(1,"Kuchnia");
 		salon = new Pomieszczenie(2,"Salon");
-		pokoj = new Pomieszczenie(3,"Pokój");
-		lazienka = new Pomieszczenie(4,"Łazienka");
+		pokoj = new Pomieszczenie(3,"PokĂłj");
+		lazienka = new Pomieszczenie(4,"Ĺ�azienka");
 		korytarz = new Pomieszczenie(5,"Korytarz");
 		
 		JLabel lblKuchnia = new JLabel("Kuchnia");
@@ -74,11 +77,11 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		lblSalon.setBounds(40, 100, 98, 14);
 		panel.add(lblSalon);
 		
-		JLabel lblLazienka = new JLabel("Łazienka");
+		JLabel lblLazienka = new JLabel("Ĺ�azienka");
 		lblLazienka.setBounds(40, 125, 76, 14);
 		panel.add(lblLazienka);
 		
-		JLabel lblPokoj = new JLabel("Pokój");
+		JLabel lblPokoj = new JLabel("PokĂłj");
 		lblPokoj.setBounds(40, 150, 76, 14);
 		panel.add(lblPokoj);
 		
@@ -160,7 +163,7 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		panel.add(chckKorytarz);
 		
 		JScrollPane listScrollPane = new JScrollPane();
-		String[] ar = {"Kuchnia", "Salon", "Łazienka","Pokój","Korytarz"};
+		String[] ar = {"Kuchnia", "Salon", "Ĺ�azienka","PokĂłj","Korytarz"};
 		JList list = new JList(ar);
 		list.addListSelectionListener(new ListSelectionListener() {
 
@@ -179,7 +182,7 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		harmonogramOswietlenia.setBounds(0, 420, 0, 0);
 		panel.add(harmonogramOswietlenia);
 		
-		btnWylaczWszystkie = new JButton("Wyłącz wszystkie");
+		btnWylaczWszystkie = new JButton("WyĹ‚Ä…cz wszystkie");
 		btnWylaczWszystkie.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				wylaczWszystkieSwiatla();
@@ -191,7 +194,7 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		JTextPane txtpnOwietlenie = new JTextPane();
 		txtpnOwietlenie.setFont(new Font("Lucida Grande", Font.BOLD, 15));
 		txtpnOwietlenie.setBackground(SystemColor.window);
-		txtpnOwietlenie.setText("Oświetlenie");
+		txtpnOwietlenie.setText("OĹ›wietlenie");
 		txtpnOwietlenie.setBounds(54, 19, 91, 25);
 		panel.add(txtpnOwietlenie);
 		
@@ -208,7 +211,7 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		
 		txtpnWybierzPokj = new JTextPane();
 		txtpnWybierzPokj.setBackground(SystemColor.window);
-		txtpnWybierzPokj.setText("Wybierz pokój:");
+		txtpnWybierzPokj.setText("Wybierz pokĂłj:");
 		txtpnWybierzPokj.setBounds(19, 322, 161, 18);
 		panel.add(txtpnWybierzPokj);
 		
@@ -217,17 +220,24 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		
 	}
 	
-	
+	/**
+	 * wlacza swiatlo w danym pomieszczeniu
+	 */
 	void wlaczSwiatlo(Pomieszczenie p){
 		p.wlaczSwiatlo();
 	}
 	
 
+	/**
+	 * wylacza swiatlo w danym pomieszczeniu
+	 */
 	void wylaczSwiatlo(Pomieszczenie p){
 		p.wylaczSwiatlo();
 	}
 	
-	
+	/**
+	 * wylacza swiatlo w danym pomieszczeniu
+	 */
 	void wylaczWszystkieSwiatla(){
 		kuchnia.wylaczSwiatlo();
 		checkKuchania.setSelected(false);
@@ -242,6 +252,9 @@ public class SterowanieOswietleniem extends JPanel implements Runnable{
 		
 	}
 	
+	/**
+	 * ustawia harmonogram oswietlenia dla podanego pomieszczenia
+	 */
 	void ustawHarmonogram(String nazwa){
 		Pomieszczenie tab[] = {kuchnia,pokoj,salon,korytarz,lazienka};
 		panel.remove(harmonogramOswietlenia);

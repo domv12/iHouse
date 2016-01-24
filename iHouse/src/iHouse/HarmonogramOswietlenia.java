@@ -15,9 +15,12 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+/**
+ * dla danego pokoju ustawia przedzil czasu w ktorym swiatla maja byc zaswiecone
+ */
 public class HarmonogramOswietlenia extends JPanel implements Runnable{
 
-		Pomieszczenie P; //dopisac w diagramie
+		Pomieszczenie P; 
 		int idPomieszczenia;
 		Czas czas;	
 		private JTextField textField;

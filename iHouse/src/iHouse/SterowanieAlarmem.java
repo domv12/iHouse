@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
+/**
+ * odpowiada za dzialanie modulu alarmu
+ */
 public class SterowanieAlarmem extends JPanel implements Runnable {
 
 	int id =1;
@@ -75,10 +78,16 @@ public class SterowanieAlarmem extends JPanel implements Runnable {
 		
 	}
 	
+	/**
+	 * wlacza alarm
+	 */
 	public void wlaczAlarm(){
 		wlaczone=true;
 		
 	}
+	/**
+	 * wylacza alarm
+	 */
 	public void wylaczAlarm(){
 	
 		wlaczone=false;

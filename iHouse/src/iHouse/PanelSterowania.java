@@ -13,6 +13,13 @@ import javax.swing.JTextArea;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
+/**
+ * zarzadza wszystkimi modulami inteligentnego domu
+ * zaiera sterowanie
+ * ogrzewaniem
+ * oswietleniem
+ * alarmem
+ */
 public class PanelSterowania extends JFrame {
 
 	private JPanel contentPane;

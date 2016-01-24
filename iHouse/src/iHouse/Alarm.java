@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * alarm zawiera tablice czujnikow 
+ * sprawdza stan czujnikow alarmu
+ */
 public class Alarm extends Thread {
 
 	List<CzujnikAlarmu> czujnik ;
@@ -20,6 +24,9 @@ public class Alarm extends Thread {
 		 gsm = new Gsm();
 	}
 	
+	/**
+	 * sprawdza stan czujnikow alarmu
+	 */
 	public boolean sprawdzStan(){
 		boolean stan = false;
 		for(int i=0;i<czujnik.size();i++)
@@ -36,6 +43,9 @@ public class Alarm extends Thread {
 	return stan;
 	}
 	
+	/**
+	 * funkcja symuluje wlamanie do domu
+	 */
 	public void wlamSie() throws InterruptedException
 	{
 		Random rand = new Random();

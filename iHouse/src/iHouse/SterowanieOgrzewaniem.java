@@ -13,6 +13,9 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JSeparator;
 
+/**
+ * odpowiada za sterowanie ogrzewaniem
+ */
 public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 
 	int id =2;
@@ -106,10 +109,16 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 
 	}
 	
+	/**
+	 * wlacza piec
+	 */
 	public void wlaczOgrzewanie(){
 		wlaczone=true;
 		
 	}
+	/**
+	 * wylacza piec
+	 */
 	public void wylaczOgrewanie(){
 		wlaczone=false;
 		
@@ -144,7 +153,9 @@ public class SterowanieOgrzewaniem extends JPanel implements Runnable{
 		}
 	}
 	
-	
+	/**
+	 * odpowiada za utrzymywanie w domu podanej przez urzytkaownika temperatury
+	 */
 	void utrzymujTemperature(double temperatura){
 		
 		if(t1.odczytajTemperature()>temperatura){

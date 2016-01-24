@@ -1,5 +1,8 @@
 package iHouse;
 
+/**
+ * symuluje czujnik alarmu 
+ */
 public class CzujnikAlarmu{
 	   
     int id;

@@ -3,6 +3,9 @@ package iHouse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * symuluje termometr
+ */
 public class CzujnikTemperatury extends Thread{
 
 	double aktualnaTemperatura;
@@ -12,6 +15,9 @@ public class CzujnikTemperatury extends Thread{
 		
 	}
 	
+	/**
+	 * zawraca aktualna temperature
+	 */
 	double odczytajTemperature(){
 		return aktualnaTemperatura;
 	}
